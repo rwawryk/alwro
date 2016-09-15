@@ -1,11 +1,8 @@
-package edu.alwro.pucks
-
-import static java.lang.Math.min
-
+package edu.alwro.disks
 /**
  * http://main.edu.pl/pl/archive/oi/13/kra
  */
-class BruteForcePucksAlgorithm {
+class BruteForceDisksAlgorithm {
 
     /**
      * Reads input data from file
@@ -31,12 +28,12 @@ class BruteForcePucksAlgorithm {
     }
 
     /**
-     * Drops a single puck into a toy
-     * @param end the last possible puck position
-     * @param k the puck size
-     * @return final puck level (starting at 0th index) or -1 when puck is too big/no room in a toy
+     * Drops a single disk into a toy
+     * @param end the last possible disk position
+     * @param k the disk size
+     * @return final disk level (starting at 0th index) or -1 when disk is too big/no room in a toy
      */
-    static private int dropPuck(int[] r, int end, int k) {
+    static private int dropDisk(int[] r, int end, int k) {
         int depth = 0
         while (depth <= end && k <= r[depth]) {
             depth++
@@ -45,14 +42,14 @@ class BruteForcePucksAlgorithm {
     }
 
     /**
-     * Drops pucks one by one into a toy
-     * @return latest puck position (starting at 0th index) or -1 when puck is too big/no room in a toy
+     * Drops disks one by one into a toy
+     * @return latest disk position (starting at 0th index) or -1 when disk is too big/no room in a toy
      */
     static int run(int[] r, int[] k) {
         int level = -1
         int end = r.length - 1
         for (int i = 0; i < k.length; i++) {
-            level = dropPuck(r, end, k[i])
+            level = dropDisk(r, end, k[i])
             if(level == -1) {
                 break
             } else {

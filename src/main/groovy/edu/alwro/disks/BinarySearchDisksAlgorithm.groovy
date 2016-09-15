@@ -1,11 +1,11 @@
-package edu.alwro.pucks
+package edu.alwro.disks
 
 import static java.lang.Math.min
 
 /**
  * http://main.edu.pl/pl/archive/oi/13/kra
  */
-class BinarySearchPucksAlgorithm {
+class BinarySearchDisksAlgorithm {
 
     static final int MAX_R = 1_000_000_000
 
@@ -35,13 +35,13 @@ class BinarySearchPucksAlgorithm {
     }
 
     /**
-     * Drops a single puck into a toy
+     * Drops a single disk into a toy
      * @param r the toy structure
-     * @param end the last possible puck level
-     * @param k the puck size
-     * @return final puck level (starting at 0th index) or -1 when puck is too big/no room in a toy
+     * @param end the last possible disk level
+     * @param k the disk size
+     * @return final disk level (starting at 0th index) or -1 when disk is too big/no room in a toy
      */
-    static private int dropPuck(int[] r, int end, int k) {
+    static private int dropDisk(int[] r, int end, int k) {
         int level = -1
         int begin = 0
         while (begin <= end) {
@@ -57,8 +57,8 @@ class BinarySearchPucksAlgorithm {
     }
 
     /**
-     * Reads the input data and drops pucks one by one into a toy
-     * @return latest puck position (starting at 0th index) or -1 when puck is too big/no room in a toy
+     * Reads the input data and drops disks one by one into a toy
+     * @return latest disk position (starting at 0th index) or -1 when disk is too big/no room in a toy
      */
     static int run(String filePath) {
         int[] r, k
@@ -67,14 +67,14 @@ class BinarySearchPucksAlgorithm {
     }
 
     /**
-     * Drops pucks one by one into a toy
-     * @return latest puck position (starting at 0th index) or -1 when puck is too big/no room in a toy
+     * Drops disks one by one into a toy
+     * @return latest disk position (starting at 0th index) or -1 when disk is too big/no room in a toy
      */
     static int run(int[] r, int[] k) {
         int end = r.length - 1
         int level = -1
         for (int i = 0; i < k.length; i++) {
-            level = dropPuck(r, end, k[i])
+            level = dropDisk(r, end, k[i])
             if(level == -1) {
                 break
             } else {
